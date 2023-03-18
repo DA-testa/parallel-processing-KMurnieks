@@ -2,12 +2,12 @@
 
 def parallel_processing(n, m, data):
     output = []
-    GotTime = [0] * n 
+    GotTime = [0] * n # Saraksts kurš saktās kad ir nākošas brīvais brīdis nākamajam thread
     
     for i in range(m):
-        next_t = min(range(n), key=GotTime.__getitem__) 
-        output.append((next_t, GotTime[next_t])) 
-        GotTime[next_t] = GotTime[next_t] +  data[i]  
+        next_t = min(range(n), key=GotTime.__getitem__) #Atrod threadu ar gottime
+        output.append((next_t, GotTime[next_t]))  #output pair
+        GotTime[next_t] = GotTime[next_t] +  data[i]  #updatoj gottime threadam
 
     # TODO: write the function for simulating parallel tasks, 
     # create the output pairs
@@ -20,8 +20,8 @@ def main():
     # first line - n and m
     # n - thread count 
     # m - job count
-    n, m = map(int, input().split())
-    data = list(map(int, input().split()))
+    n, m = map(int, input().split())       #Input
+    data = list(map(int, input().split())) #More input
 
 
     # second line - data 
@@ -29,10 +29,10 @@ def main():
     
 
     # TODO: create the function
-    result = parallel_processing(n,m,data)
+    atbilde = parallel_processing(n,m,data) #Funkcijas izsaukšana
     
     # TODO: print out the results, each pair in it's own line
-    for thread, starting in result:
+    for thread, starting in atbilde:    #Photos binted
         print(thread, starting)
 
 
