@@ -5,7 +5,7 @@ def parallel_processing(n, m, data):
     GotTime = [0] * n 
     
     for i in range(m):
-        next_t = min(range(n), GotTime.__getitem__) 
+        next_t = min(range(n), key=GotTime.__getitem__) 
         output.append((next_t, GotTime[next_t])) 
         GotTime[next_t] = GotTime[next_t] +  data[i]  
 
